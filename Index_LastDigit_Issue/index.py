@@ -8,8 +8,7 @@ import xlrd
 loc = ("FIT16.xlsx")
 indexes = []
 names = []
-checkDigit = '3'
-
+checkDigit = input("Please enter the last digit: ")
 
 wb = xlrd.open_workbook(loc)
 sheet = wb.sheet_by_index(0)
@@ -20,6 +19,7 @@ for i in range(sheet.nrows):
         indexes.append(sheet.cell_value(i,1))
         names.append(sheet.cell_value(i,2))
     
-print("\n There are",len(names)," students having 3 as last digit of their index\n")
+print("\n There are",len(names)," students having ",checkDigit," as last digit of their index\n")
 for i, n in zip(indexes, names):
     print("{} = {}".format(i,n))
+
